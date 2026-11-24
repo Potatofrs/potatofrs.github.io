@@ -4,12 +4,10 @@
 <meta charset="UTF-8">
 <link rel="icon" type="image/x-icon" href="favicon.ico">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Queenie C. Mahipos — QA professional specializing in web and mobile QA, SAP ERP RE module support, and test automation with Playwright and UiPath. Based in Cebu, open to remote roles.">
 <title>Queenie C. Mahipos · QA Portfolio</title>
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@400;500&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  html { scroll-behavior: smooth; }
   :root {
     --bg: #f9f8f5;
     --surface: #ffffff;
@@ -26,9 +24,12 @@
     --teal-soft: #E1F5EE;
     --purple: #534AB7;
     --purple-soft: #EEEDFE;
+    --coral: #993C1D;
+    --coral-soft: #FAECE7;
   }
+  html { scroll-behavior: smooth; scroll-padding-top: 70px; }
   body { font-family: 'DM Sans', sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; font-size: 15px; }
- 
+
   nav {
     position: sticky; top: 0; z-index: 100;
     background: rgba(249,248,245,0.92);
@@ -42,7 +43,7 @@
   .nav-links { display: flex; gap: 2rem; list-style: none; }
   .nav-links a { font-size: 13px; color: var(--muted); text-decoration: none; transition: color 0.2s; }
   .nav-links a:hover { color: var(--text); }
- 
+
   .hero { max-width: 760px; margin: 0 auto; padding: 6rem 2rem 4rem; }
   .hero-tag {
     display: inline-flex; align-items: center; gap: 6px;
@@ -52,9 +53,9 @@
     border-radius: 100px; margin-bottom: 1.5rem;
   }
   .hero-tag::before { content: '●'; font-size: 8px; }
-  h1 { font-family: 'DM Serif Display', serif; font-size: clamp(2.2rem, 5vw, 3.5rem); line-height: 1.1; letter-spacing: -0.02em; margin-bottom: 1.25rem; }
+  h1 { font-family: 'DM Serif Display', serif; font-size: clamp(2.2rem, 5vw, 3.5rem); line-height: 1.1; letter-spacing: -0.02em; margin-bottom: 1.25rem; font-weight: 400; }
   h1 em { font-style: italic; color: var(--accent); }
-  .hero-sub { font-size: 16px; color: var(--muted); max-width: 520px; margin-bottom: 2.5rem; font-weight: 300; line-height: 1.75; }
+  .hero-sub { font-size: 16px; color: var(--muted); max-width: 540px; margin-bottom: 2.5rem; font-weight: 300; line-height: 1.75; }
   .hero-ctas { display: flex; gap: 12px; flex-wrap: wrap; }
   .btn-primary {
     display: inline-flex; align-items: center; gap: 6px;
@@ -70,17 +71,17 @@
     text-decoration: none; border: 0.5px solid var(--border); cursor: pointer; transition: background 0.2s;
   }
   .btn-ghost:hover { background: var(--surface); }
- 
+
+  .stats-wrap { max-width: 760px; margin: 0 auto 4rem; padding: 0 2rem; }
   .stats {
-    max-width: 760px; margin: 0 auto 4rem; padding: 0 2rem;
-    display: grid; grid-template-columns: repeat(3, 1fr);
+    display: grid; grid-template-columns: repeat(4, 1fr);
     gap: 1px; background: var(--border);
     border: 0.5px solid var(--border); border-radius: 10px; overflow: hidden;
   }
-  .stat { background: var(--surface); padding: 1.25rem 1.5rem; text-align: center; }
+  .stat { background: var(--surface); padding: 1.25rem 1rem; text-align: center; }
   .stat-number { font-family: 'DM Serif Display', serif; font-size: 2rem; line-height: 1; margin-bottom: 4px; }
   .stat-label { font-size: 12px; color: var(--muted); letter-spacing: 0.04em; }
- 
+
   section { max-width: 760px; margin: 0 auto; padding: 3rem 2rem; }
   .section-label {
     font-family: 'DM Mono', monospace; font-size: 11px;
@@ -88,13 +89,18 @@
     display: flex; align-items: center; gap: 12px;
   }
   .section-label::after { content: ''; flex: 1; height: 0.5px; background: var(--border); }
- 
+
+  .about-head { display: flex; align-items: center; gap: 16px; margin-bottom: 1.5rem; }
+  .about-card { background: var(--surface); border: 0.5px solid var(--border); border-radius: 12px; padding: 1.5rem; }
+  .about-card p { font-size: 15px; line-height: 1.8; margin: 0 0 1rem; }
+  .about-card p:last-child { margin: 0; }
+
   .skills-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 12px; }
   .skill-card { background: var(--surface); border: 0.5px solid var(--border); border-radius: 10px; padding: 1rem 1.25rem; }
   .skill-icon { width: 32px; height: 32px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 15px; margin-bottom: 10px; }
   .skill-name { font-size: 13px; font-weight: 500; margin-bottom: 4px; }
   .skill-tools { font-size: 12px; color: var(--muted); line-height: 1.5; }
- 
+
   .projects-list { display: flex; flex-direction: column; gap: 12px; }
   .project-card {
     background: var(--surface); border: 0.5px solid var(--border);
@@ -107,6 +113,9 @@
   .project-type { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 0.08em; color: var(--muted); margin-bottom: 6px; }
   .project-name { font-family: 'DM Serif Display', serif; font-size: 1.15rem; margin-bottom: 6px; line-height: 1.2; }
   .project-desc { font-size: 13px; color: var(--muted); line-height: 1.65; margin-bottom: 12px; }
+  .project-impact { list-style: none; margin: 0 0 12px; display: flex; flex-direction: column; gap: 6px; }
+  .project-impact li { font-size: 13px; color: var(--text); line-height: 1.55; padding-left: 18px; position: relative; }
+  .project-impact li::before { content: '→'; position: absolute; left: 0; color: var(--accent); }
   .project-tags { display: flex; flex-wrap: wrap; gap: 6px; }
   .tag { font-size: 11px; font-family: 'DM Mono', monospace; padding: 3px 10px; border-radius: 100px; border: 0.5px solid var(--border); color: var(--muted); }
   .project-badge { font-size: 11px; font-weight: 500; padding: 4px 10px; border-radius: 100px; white-space: nowrap; }
@@ -114,7 +123,9 @@
   .badge-amber { background: var(--amber-soft); color: var(--amber); }
   .badge-blue { background: var(--accent-soft); color: var(--accent); }
   .badge-teal { background: var(--teal-soft); color: var(--teal); }
- 
+  .badge-purple { background: var(--purple-soft); color: var(--purple); }
+  .badge-coral { background: var(--coral-soft); color: var(--coral); }
+
   .exp-list { display: flex; flex-direction: column; gap: 24px; }
   .exp-item { display: grid; grid-template-columns: 130px 1fr; gap: 1.5rem; }
   .exp-date { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--muted); padding-top: 3px; line-height: 1.6; }
@@ -122,26 +133,27 @@
   .exp-company { font-size: 13px; color: var(--accent); margin-bottom: 8px; }
   .exp-desc { font-size: 13px; color: var(--muted); line-height: 1.65; }
   .exp-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
- 
+
   .contact-box { background: var(--surface); border: 0.5px solid var(--border); border-radius: 14px; padding: 2.5rem; text-align: center; }
-  .contact-box h2 { font-family: 'DM Serif Display', serif; font-size: 2rem; margin-bottom: 10px; }
+  .contact-box h2 { font-family: 'DM Serif Display', serif; font-size: 2rem; margin-bottom: 10px; font-weight: 400; }
   .contact-box p { color: var(--muted); font-size: 15px; margin-bottom: 2rem; font-weight: 300; }
   .contact-links { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
- 
+
   .avatar { width: 56px; height: 56px; border-radius: 50%; background: var(--accent-soft); display: flex; align-items: center; justify-content: center; font-weight: 500; font-size: 16px; color: var(--accent); flex-shrink: 0; }
- 
+
   footer { text-align: center; padding: 2rem; font-family: 'DM Mono', monospace; font-size: 11px; color: var(--muted); border-top: 0.5px solid var(--border); margin-top: 2rem; }
- 
+
   @media (max-width: 600px) {
     .exp-item { grid-template-columns: 1fr; gap: 4px; }
-    .stats { grid-template-columns: 1fr; }
+    .stats { grid-template-columns: repeat(2, 1fr); }
     nav .nav-links { display: none; }
     .project-card { grid-template-columns: 1fr; }
+    .project-badge { justify-self: start; order: -1; }
   }
 </style>
 </head>
 <body>
- 
+
 <nav>
   <span class="nav-logo">// queenie.qa</span>
   <ul class="nav-links">
@@ -152,96 +164,99 @@
     <li><a href="#contact">Contact</a></li>
   </ul>
 </nav>
- 
+
 <div class="hero">
   <div class="hero-tag">Open to full-time &amp; freelance</div>
   <h1>Quality you can<br>rely on,<br><em>every release.</em></h1>
-  <p class="hero-sub">QA professional specializing in web and mobile QA, SAP ERP configuration and support, with growing expertise in test automation. Based in Cebu and open to remote opportunities.</p>
+  <p class="hero-sub">QA professional specializing in functional testing, mobile QA, and SAP ERP support, with hands-on experience in test automation and process automation that saves teams real hours. Based in Cebu and open to remote.</p>
   <div class="hero-ctas">
     <a href="#contact" class="btn-primary">Get in touch</a>
     <a href="#projects" class="btn-ghost">See my work</a>
   </div>
 </div>
- 
-<div class="stats">
-  <div class="stat">
-    <div class="stat-number">3 yrs</div>
-    <div class="stat-label">at Cebu Landmasters</div>
-  </div>
-  <div class="stat">
-    <div class="stat-number">3</div>
-    <div class="stat-label">roles progressed</div>
-  </div>
-  <div class="stat">
-    <div class="stat-number">6+</div>
-    <div class="stat-label">platforms (web + mobile)</div>
+
+<div class="stats-wrap">
+  <div class="stats">
+    <div class="stat">
+      <div class="stat-number">3 yrs</div>
+      <div class="stat-label">at Cebu Landmasters</div>
+    </div>
+    <div class="stat">
+      <div class="stat-number">3</div>
+      <div class="stat-label">roles progressed</div>
+    </div>
+    <div class="stat">
+      <div class="stat-number">142</div>
+      <div class="stat-label">users on my AppSheet app</div>
+    </div>
+    <div class="stat">
+      <div class="stat-number">6+</div>
+      <div class="stat-label">platforms (web + mobile)</div>
+    </div>
   </div>
 </div>
- 
+
 <section id="about">
   <div class="section-label">ABOUT</div>
-  <div style="display:flex;align-items:center;gap:16px;margin-bottom:1.5rem;">
+  <div class="about-head">
     <div class="avatar">QM</div>
     <div>
-      <p style="font-weight:500;font-size:16px;margin:0;">Queenie C. Mahipos, CTFL</p>
+      <p style="font-weight:500;font-size:16px;margin:0;">Queenie C. Mahipos</p>
       <p style="font-size:13px;color:var(--muted);margin:0;">Digital Solutions QA · Cebu Landmasters, Inc.</p>
     </div>
   </div>
-<div style="background:var(--surface);border:0.5px solid var(--border);border-radius:12px;padding:1.5rem;">
-  <p style="font-size:15px;line-height:1.8;margin:0 0 1rem;">
-    I'm a dedicated IT professional and ISTQB Certified Tester (CTFL) with three years of experience at Cebu Landmasters, Inc., specializing in software quality assurance, functional and black-box testing, web and mobile QA, SAP ERP support, and test automation. Currently serving as a Digital Solutions QA Associate III, I help ensure the stability, reliability, and performance of digital solutions through thorough testing and quality assurance practices.
-  </p>
- 
-  <p style="font-size:15px;line-height:1.8;margin:0 0 1rem;">
-    I build and maintain automated test scripts using Playwright and develop UiPath automation workflows to improve testing and operational efficiency, including automated report generation. I also develop and deploy AI Studio solutions, applying automation and AI technologies to streamline business processes. Alongside my QA responsibilities, I provide functional support for the SAP ERP RE (Real Estate) Module, collaborating closely with SAP ABAP and full-stack developers to analyze requirements, investigate issues, validate enhancements, and deliver reliable digital solutions.
-  </p>
- 
-  <p style="font-size:15px;line-height:1.8;margin:0;">
-    Outside my full-time role, I provide freelance QA services covering web, iOS, and Android applications, performing functional, regression, and exploratory testing. I use tools such as Jira, Bugsnag, and TestLink for defect tracking, test case management, and test documentation, delivering detailed test evidence and actionable quality feedback. I'm passionate about building reliable software, improving testing processes through automation, and continuously expanding my expertise across QA, automation, SAP, and emerging technologies.
-  </p>
-</div>
+  <div class="about-card">
+    <p>I'm a dedicated IT professional with three years of experience at Cebu Landmasters, Inc., specializing in software quality assurance, black-box testing, ERP system support, and automation. Currently serving as a Digital Solutions QA Associate III, I ensure the stability, reliability, and performance of digital solutions through rigorous functional testing.</p>
+    <p>I build and maintain automated test scripts to improve testing efficiency, and I automate business processes using UiPath, AppSheet, and Google Apps Script, from report generation to reference number issuance to mass email distribution. Alongside QA responsibilities, I provide end-to-end support for the SAP ERP RE Module, collaborating closely with SAP ABAP and full-stack developers to analyze requirements, implement system improvements, and deliver well-integrated digital solutions.</p>
+    <p>Outside my full-time role, I took on freelance subcontracting work in iOS and Android testing, bringing the same quality-first mindset to every engagement. I'm open to full-time and freelance opportunities where craft and reliability matter.</p>
+  </div>
 </section>
- 
+
 <section id="skills">
   <div class="section-label">SKILLS</div>
   <div class="skills-grid">
     <div class="skill-card">
       <div class="skill-icon" style="background:var(--accent-soft);color:var(--accent);">🧪</div>
       <div class="skill-name">Web Testing</div>
-      <div class="skill-tools">Functional Testing, Regression Testing, UI Testing, Bug Reporting</div>
+      <div class="skill-tools">Web application testing, functional testing, regression, bug reporting</div>
     </div>
     <div class="skill-card">
       <div class="skill-icon" style="background:var(--purple-soft);color:var(--purple);">⚙️</div>
       <div class="skill-name">Test Automation</div>
-      <div class="skill-tools">Playwright, Automated Test Scripts, Test Script Maintenance</div>
+      <div class="skill-tools">Playwright, automated test scripts, test script maintenance</div>
     </div>
     <div class="skill-card">
       <div class="skill-icon" style="background:var(--teal-soft);color:var(--teal);">🤖</div>
-      <div class="skill-name">RPA, AI &amp; Workflow Automation</div>
-      <div class="skill-tools">UiPath, AI Studio, AI-Powered Solutions, Automated Report Generation</div>
+      <div class="skill-name">RPA &amp; Workflow Automation</div>
+      <div class="skill-tools">UiPath, VBA Macro, automated report generation</div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-icon" style="background:var(--green-soft);color:var(--green);">🔄</div>
+      <div class="skill-name">Process Automation</div>
+      <div class="skill-tools">AppSheet, Google Apps Script, automated emails, no-code app development</div>
     </div>
     <div class="skill-card">
       <div class="skill-icon" style="background:var(--amber-soft);color:var(--amber);">🏢</div>
       <div class="skill-name">SAP ERP</div>
-      <div class="skill-tools">SAP Testing, SAP RE Module, SAP Configuration, Functional Issue Analysis & Resolution</div>
+      <div class="skill-tools">SAP Testing, SAP ERP RE Module, SAP Configuration, functional issue resolution</div>
     </div>
     <div class="skill-card">
       <div class="skill-icon" style="background:var(--green-soft);color:var(--green);">📱</div>
       <div class="skill-name">Mobile Testing</div>
-      <div class="skill-tools">iOS Testing, Android Testing, Functional Testing, Mobile UI Testing, Performance Testing</div>
+      <div class="skill-tools">iOS Testing, Android Testing</div>
     </div>
     <div class="skill-card">
-      <div class="skill-icon" style="background:#FAECE7;color:#993C1D;">🤝</div>
+      <div class="skill-icon" style="background:var(--coral-soft);color:var(--coral);">🤝</div>
       <div class="skill-name">Cross-functional Collaboration</div>
-      <div class="skill-tools">SAP ABAP devs, full-stack teams, stakeholders</div>
+      <div class="skill-tools">SAP ABAP devs, full-stack teams, Treasury, Finance, stakeholders</div>
     </div>
   </div>
 </section>
- 
+
 <section id="projects">
   <div class="section-label">PROJECTS</div>
   <div class="projects-list">
- 
+
     <div class="project-card">
       <div>
         <div class="project-type">TEST AUTOMATION · CEBU LANDMASTERS</div>
@@ -255,7 +270,7 @@
       </div>
       <span class="project-badge badge-green">Efficiency boost</span>
     </div>
- 
+
     <div class="project-card">
       <div>
         <div class="project-type">RPA · CEBU LANDMASTERS</div>
@@ -269,12 +284,47 @@
       </div>
       <span class="project-badge badge-teal">Manual effort reduced</span>
     </div>
- 
+
+    <div class="project-card">
+      <div>
+        <div class="project-type">PROCESS AUTOMATION · CEBU LANDMASTERS</div>
+        <div class="project-name">AppSheet Reference Number Generator for Treasury</div>
+        <div class="project-desc">Built an AppSheet application that automatically generates reference numbers per entity and bank, with dynamic email details. It replaces a manual request process in which process owners had to ask the Treasury team for each reference number.</div>
+        <ul class="project-impact">
+          <li><strong>142 active users</strong> across the organization as of Nov 24, 2026.</li>
+          <li>Process owners in Sales, CRS, and CLPMI <strong>no longer request reference numbers manually</strong> from Treasury.</li>
+          <li>Reference numbers are generated automatically, so <strong>Treasury no longer needs to work on weekends</strong> to issue them.</li>
+          <li>Consistent reference numbering per entity and bank, with auto-populated email details.</li>
+        </ul>
+        <div class="project-tags">
+          <span class="tag">AppSheet</span>
+          <span class="tag">No-code</span>
+          <span class="tag">Process Automation</span>
+          <span class="tag">Dynamic Emails</span>
+        </div>
+      </div>
+      <span class="project-badge badge-purple">142 users</span>
+    </div>
+
+    <div class="project-card">
+      <div>
+        <div class="project-type">PROCESS AUTOMATION · CEBU LANDMASTERS</div>
+        <div class="project-name">Mass Email Automation with Google Apps Script</div>
+        <div class="project-desc">Developed Google Apps Script solutions for mass email send-outs to different accounts, supporting the Accounts Management Team, Treasury, and Corporate Finance. This replaces repetitive manual sending with a reliable, repeatable process.</div>
+        <div class="project-tags">
+          <span class="tag">Google Apps Script</span>
+          <span class="tag">Mass Email</span>
+          <span class="tag">Workflow Automation</span>
+        </div>
+      </div>
+      <span class="project-badge badge-coral">3 teams supported</span>
+    </div>
+
     <div class="project-card">
       <div>
         <div class="project-type">ERP SUPPORT · CEBU LANDMASTERS</div>
-        <div class="project-name">SAP ERP RE Module — End-to-end Support</div>
-        <div class="project-desc">Provided ongoing functional support for the SAP ERP RE (Real Estate) Module, resolving functional issues and coordinating system enhancements through CRFs (Change Request Forms) and BURs (Business User Requirements). Collaborated closely with SAP ABAP developers to implement solutions and maintain reliable day-to-day operations.</div>
+        <div class="project-name">SAP ERP RE Module: End-to-end Support</div>
+        <div class="project-desc">Provided ongoing functional support for the SAP ERP RE (Real Estate) Module, resolving issues, coordinating system enhancements, and maintaining operational continuity in close collaboration with SAP ABAP and full-stack developers.</div>
         <div class="project-tags">
           <span class="tag">SAP ERP</span>
           <span class="tag">SAP Configuration</span>
@@ -284,103 +334,97 @@
       </div>
       <span class="project-badge badge-amber">3 yrs sustained</span>
     </div>
-    <div class="project-card">
-  <div>
-    <div class="project-type">SOFTWARE QA · FULL-TIME</div>
-    <div class="project-name">Digital Solutions Quality Assurance</div>
-    <div class="project-desc">
-      Ongoing full-time QA role covering functional, regression, web, and mobile testing across multiple digital solutions. Responsible for validating system functionality, identifying and documenting defects, preparing test cases and test evidence, and collaborating with developers and stakeholders to ensure the quality, stability, and reliability of software releases. Also build and maintain automated test scripts using Playwright and develop UiPath automation workflows and AI Studio solutions to improve testing efficiency and streamline business processes.
-    </div>
-    <div class="project-tags">
-      <span class="tag">Functional Testing</span>
-      <span class="tag">Web Testing</span>
-      <span class="tag">Mobile Testing</span>
-      <span class="tag">Regression Testing</span>
-      <span class="tag">Playwright</span>
-      <span class="tag">UiPath</span>
-      <span class="tag">AI Studio</span>
-    </div>
-  </div>
-  <span class="project-badge badge-blue">Full-time · 2023–Present</span>
-</div>
- 
+
     <div class="project-card">
       <div>
-        <div class="project-type">WEB, iOS & ANDROID QA · FREELANCE</div>
-        <div class="project-name">Web, iOS &amp; Android Testing — Subcontract</div>
-        <div class="project-desc">Ongoing freelance QA engagement covering web, iOS, and Android platforms, performing functional, regression, and exploratory testing. Identifying and documenting defects, delivering detailed bug reports and test evidence, and supporting the quality and reliability of digital products through remote collaboration.</div>
+        <div class="project-type">MOBILE QA · FREELANCE</div>
+        <div class="project-name">iOS &amp; Android Testing: Subcontract</div>
+        <div class="project-desc">Completed a freelance mobile QA engagement (Jan–Nov 2026) covering functional, regression, and exploratory testing across iOS and Android platforms. Managed defect reporting and tracking, and delivered detailed bug reports and test evidence remotely to support reliable software releases.</div>
         <div class="project-tags">
-          <span class="tag">Web Testing</span>
           <span class="tag">iOS Testing</span>
           <span class="tag">Android Testing</span>
           <span class="tag">Remote QA</span>
+          <span class="tag">Jira</span>
+          <span class="tag">Bugsnag</span>
+          <span class="tag">TestLink</span>
+          <span class="tag">Pendo</span>
+          <span class="tag">Django Admin</span>
         </div>
       </div>
-      <span class="project-badge badge-blue">Ongoing · 2026</span>
+      <span class="project-badge badge-blue">Completed · Nov 2026</span>
     </div>
- 
+
   </div>
 </section>
- 
+
 <section id="experience">
   <div class="section-label">EXPERIENCE</div>
   <div class="exp-list">
- 
-<div class="exp-item">
-  <div class="exp-date">Mar 2023<br>— Present</div>
-  <div>
-    <div class="exp-role">Digital Solutions QA III</div>
-    <div class="exp-company">Cebu Landmasters, Inc. · On-site, Cebu</div>
-    <div class="exp-desc">
-      Responsible for software quality assurance and functional testing across multiple digital solutions, ensuring system stability, reliability, performance, and usability. Perform functional, regression, exploratory, and SAP-related testing while collaborating with developers, business stakeholders, and cross-functional teams to validate requirements, identify defects, and ensure successful system enhancements.
-      <br><br>
-      Build and maintain automated test scripts using Playwright and develop UiPath automation workflows to streamline report generation and improve operational efficiency. Also provide functional support for the SAP ERP RE (Real Estate) Module, including SAP configuration testing, functional issue resolution, and coordination of system enhancements with SAP ABAP developers.
-      <br><br>
-      Responsibilities have expanded to include web and mobile QA, SAP ERP support and configuration, test automation, RPA, and AI-powered digital solutions, while maintaining software quality assurance as the primary area of responsibility.
-    </div>
-    <div class="exp-tags">
-      <span class="tag">Functional Testing</span>
-      <span class="tag">Web QA</span>
-      <span class="tag">Mobile QA</span>
-      <span class="tag">Regression Testing</span>
-      <span class="tag">Playwright</span>
-      <span class="tag">SAP ERP</span>
-      <span class="tag">UiPath</span>
-      <span class="tag">Test Automation</span>
-      <span class="tag">AI Studio</span>
-    </div>
-  </div>
-</div>
- 
+
     <div class="exp-item">
-      <div class="exp-date">Jan 2026<br>— Present</div>
+      <div class="exp-date">Mar 2026<br>— Present</div>
       <div>
-        <div class="exp-role">QA Subcontractor</div>
-        <div class="exp-company">Freelance · Remote, Cebu</div>
-        <div class="exp-desc">Providing freelance QA services on a contract basis across web, iOS, and Android platforms, performing functional, regression, and exploratory testing. Managing defect reporting and tracking through Jira and Bugsnag, with test case management and execution in TestLink. Delivering detailed test evidence and quality feedback to support reliable software releases, while managing the engagement alongside my full-time role.</div>
+        <div class="exp-role">Digital Solutions QA Associate III</div>
+        <div class="exp-company">Cebu Landmasters, Inc. · On-site, Cebu</div>
+        <div class="exp-desc">Leading functional testing efforts to ensure stability, reliability, and performance of digital solutions. Building and maintaining automated test scripts, and developing automation for the business: UiPath workflows for report generation, an AppSheet reference number generator used by 142 people, and Google Apps Script mass email tools for Accounts Management, Treasury, and Corporate Finance.</div>
         <div class="exp-tags">
-          <span class="tag">iOS Testing</span><span class="tag">Android Testing</span><span class="tag">Web Testing</span><span class="tag">Remote</span>
+          <span class="tag">Playwright</span><span class="tag">UiPath</span><span class="tag">AppSheet</span><span class="tag">Apps Script</span><span class="tag">Functional Testing</span>
         </div>
       </div>
     </div>
- 
+
+    <div class="exp-item">
+      <div class="exp-date">Jan 2026<br>— Nov 2026</div>
+      <div>
+        <div class="exp-role">QA Subcontractor</div>
+        <div class="exp-company">Freelance · Remote, Cebu</div>
+        <div class="exp-desc">Delivered contract-based QA across web, iOS, and Android platforms, performing functional, regression, and exploratory testing. Managed defect reporting and tracking in Jira and Bugsnag, and test case management and execution in TestLink. Used Pendo for application analytics and user behavior monitoring, and Django Admin for backend data validation and test data management. Engagement concluded November 2026.</div>
+        <div class="exp-tags">
+          <span class="tag">iOS Testing</span><span class="tag">Android Testing</span><span class="tag">Jira</span><span class="tag">TestLink</span><span class="tag">Remote</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="exp-item">
+      <div class="exp-date">Aug 2024<br>— Mar 2026</div>
+      <div>
+        <div class="exp-role">Digital Solutions QA Associate II</div>
+        <div class="exp-company">Cebu Landmasters, Inc. · Philippines</div>
+        <div class="exp-desc">Expanded QA scope to include SAP configuration testing and software quality assurance across multiple digital products. Collaborated with cross-functional teams to validate system enhancements.</div>
+        <div class="exp-tags">
+          <span class="tag">SAP Configuration</span><span class="tag">Software Testing</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="exp-item">
+      <div class="exp-date">Jun 2023<br>— Aug 2024</div>
+      <div>
+        <div class="exp-role">ERP / SAP Functional Associate</div>
+        <div class="exp-company">Cebu Landmasters, Inc. · Metro Cebu</div>
+        <div class="exp-desc">Provided end-to-end functional support for the SAP ERP RE Module. Resolved functional issues, coordinated system enhancements, and maintained operational continuity while working with SAP ABAP developers.</div>
+        <div class="exp-tags">
+          <span class="tag">SAP ERP</span><span class="tag">ERP Support</span>
+        </div>
+      </div>
+    </div>
+
   </div>
 </section>
- 
+
 <section id="contact">
   <div class="section-label">CONTACT</div>
   <div class="contact-box">
     <h2>Let's work together</h2>
-    <p>Open to full-time roles and freelance QA engagements — remote-friendly from Cebu, Philippines.</p>
+    <p>Open to full-time roles and freelance QA engagements, remote-friendly from Cebu, Philippines.</p>
     <div class="contact-links">
       <a href="mailto:kwini.mahipos@gmail.com" class="btn-primary">kwini.mahipos@gmail.com</a>
-      <a href="https://www.linkedin.com/in/queenie-c-mahipos-508890266/" target="_blank" rel="noopener noreferrer" class="btn-ghost">LinkedIn</a>
+      <a href="https://www.linkedin.com/in/queenie-c-mahipos-508890266/" class="btn-ghost">LinkedIn</a>
     </div>
   </div>
 </section>
- 
+
 <footer>queenie c. mahipos · qa engineer · cebu, ph · 2026</footer>
- 
+
 </body>
 </html>
- 
